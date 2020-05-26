@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="themePreferences">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>Black</item>
+    </string-array>
+    <string-array name="themePreferencesValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="languagePreferences">
+        <item>English</item>
+        <item>Hindi</item>
+    </string-array>
+    <string-array name="languagePreferencesValues">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">IPU Notes</string>
+    <string name="close">close</string>
+    <string name="open">open</string>
+
+
+    <string name="userInterface">User Interface</string>
+    <string name="theme">Theme</string>
+    <string name="language">Language</string>
+    <string name="settings">Settings</string>
+
+</resources>
