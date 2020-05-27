@@ -8,6 +8,7 @@ import androidx.preference.PreferenceManager
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Extras.changeTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 

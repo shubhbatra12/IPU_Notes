@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private val subjectFragment = SubjectFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Extras.changeTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
