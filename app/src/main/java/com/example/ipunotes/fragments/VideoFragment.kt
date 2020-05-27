@@ -1,4 +1,4 @@
-package com.example.ipunotes.Fragments
+package com.example.ipunotes.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
