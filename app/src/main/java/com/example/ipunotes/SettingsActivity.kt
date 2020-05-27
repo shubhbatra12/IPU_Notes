@@ -7,12 +7,14 @@ import androidx.preference.PreferenceManager
 
 class SettingsActivity : AppCompatActivity() {
 
+    val settingsFragment = SettingsFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         Extras.changeTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        supportFragmentManager.beginTransaction().replace(R.id.settingsContainer, SettingsFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.settingsContainer, settingsFragment).commit()
     }
 
 

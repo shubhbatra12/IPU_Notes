@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initiateLandscapeSetup() {
-        supportFragmentManager.beginTransaction().replace(R.id.container, mainFragment).add(R.id.container,subjectFragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container1, mainFragment).replace(R.id.container2,subjectFragment).commit()
     }
 
     private fun initiatePortraitSetup() {
