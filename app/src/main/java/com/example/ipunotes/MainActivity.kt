@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         drawerToggle.syncState()
 
         supportFragmentManager.beginTransaction().replace(R.id.container, SubjectFragment()).commit()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
