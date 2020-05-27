@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
+import com.example.ipunotes.Fragments.SubjectFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         drawer.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
-        supportFragmentManager.beginTransaction().replace(R.id.container, MainFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container, SubjectFragment()).commit()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
