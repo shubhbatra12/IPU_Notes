@@ -6,13 +6,13 @@
         android:title="@string/userInterface">
         <ListPreference
             android:title="@string/theme"
-            android:key="theme"
+            android:key="@string/themeKey"
             android:entries="@array/themePreferences"
             android:entryValues="@array/themePreferencesValues"
             app:useSimpleSummaryProvider="true"/>
         <ListPreference
             android:title="@string/language"
-            android:key="language"
+            android:key="@string/languageKey"
             android:entries="@array/languagePreferences"
             android:entryValues="@array/languagePreferencesValues"
             app:useSimpleSummaryProvider="true"/>

@@ -11,7 +11,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         GlobalScope.launch {
-            delay(2000)
+            delay(1000)
             withContext(Dispatchers.Main){
                 startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                 finish()

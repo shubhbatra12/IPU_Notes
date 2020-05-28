@@ -5,9 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/settingsContainer"/>
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/backgroundPrimary"
+            app:title="@string/settings"
+            app:titleTextColor="?attr/textColorPrimary"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/settingsContainer"
+            android:background="?attr/backgroundPrimary"/>
 
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
