@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:menu="@menu/drawer_menu"
-        android:layout_gravity="left"/>
+        android:layout_gravity="left"
+        android:background="?attr/backgroundSecondary"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
