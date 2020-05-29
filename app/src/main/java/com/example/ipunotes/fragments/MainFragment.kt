@@ -42,12 +42,15 @@ class MainFragment : Fragment(), OnSubjectClickListener {
     override fun onSubjectClick(position: Int) {
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             parentFragmentManager.beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                 .replace(R.id.container, SubjectFragment(subjectsList[position]))
                 .addToBackStack(null)
                 .commit()
         }else{
             parentFragmentManager.beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_out_left)
                 .replace(R.id.container2, SubjectFragment(subjectsList[position]))
+                .addToBackStack(null)
                 .commit()
         }
     }
