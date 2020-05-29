@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.NotesFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.VideoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVideos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundPrimary"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="7"
+        tools:listitem="@layout/video_item_view" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

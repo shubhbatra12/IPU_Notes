@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
@@ -59,6 +60,22 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.settingsOption -> {
                 startActivity(Intent(this, SettingsActivity::class.java))
+            }
+            R.id.testingOption -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    supportFragmentManager.beginTransaction().replace(R.id.container, mainFragment)
+                        .commit()
+                } else {
+                    Toast.makeText(this,"This is for Accessing Main fragment In potrait",Toast.LENGTH_SHORT).show()
+                }
+            }
+            R.id.testingOptioN -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    supportFragmentManager.beginTransaction().replace(R.id.container, subjectFragment)
+                        .commit()
+                } else {
+                    Toast.makeText(this,"This is for Accessing Subject fragment In potrait",Toast.LENGTH_SHORT).show()
+                }
             }
         }
         return super.onOptionsItemSelected(item)

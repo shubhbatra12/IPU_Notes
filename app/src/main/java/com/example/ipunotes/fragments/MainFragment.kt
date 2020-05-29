@@ -28,8 +28,11 @@ class MainFragment : Fragment() {
         rvSubjects.adapter = subjectsAdapter
         rvSubjects.addItemDecoration(DividerItemDecoration(context, VERTICAL))
 
+        subjectsList.clear()
+
         subjectsList.add(Subject("Applied Maths"))
         subjectsList.add(Subject("Communication System"))
         subjectsAdapter.notifyDataSetChanged()
+
     }
 }

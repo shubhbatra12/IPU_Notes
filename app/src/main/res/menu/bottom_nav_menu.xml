@@ -5,14 +5,17 @@
     <item
         android:id="@+id/notesBtnF"
         android:enabled="true"
+        android:icon="@drawable/icons8file"
         android:title="Notes"/>
     <item
         android:id="@+id/fileBtnF"
         android:enabled="true"
+        android:icon="@drawable/icons8spiralboundbooklet"
         android:title="Files"/>
     <item
         android:id="@+id/videoBtnF"
         android:enabled="true"
+        android:icon="@drawable/icons8video"
         android:title="Videos" />
 
 </menu>

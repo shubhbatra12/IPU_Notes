@@ -7,10 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.ipunotes.R
+import com.example.ipunotes.adapters.SubjectsAdapter
+import com.example.ipunotes.models.Subject
 
 
 class NotesFragment : Fragment() {
 
+//    private val subjectsList = ArrayList<Subject>()
+//    private val subjectsAdapter = SubjectsAdapter(subjectsList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
