@@ -21,11 +21,17 @@
     </style>
 
     <style name="DarkTheme" parent="AppTheme">
-        <item name="textColorPrimary">@color/black</item>
+        <item name="textColorPrimary">@color/white</item>
         <item name="textColorSecondary">@color/white</item>
         <item name="labelBackgroundColor">@color/blue</item>
-        <item name="backgroundPrimary">@color/white</item>
-        <item name="backgroundSecondary">@color/white</item>
+        <item name="backgroundPrimary">@color/darkGrey</item>
+        <item name="backgroundSecondary">@color/grey</item>
+
+        <!--    Defaults...     -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/lightGrey</item>
+        <item name="android:itemBackground">@color/grey</item>
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
     </style>
 
     <style name="BlackTheme" parent="AppTheme">
