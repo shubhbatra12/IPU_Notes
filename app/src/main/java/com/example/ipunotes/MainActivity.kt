@@ -11,12 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.example.ipunotes.fragments.MainFragment
 import com.example.ipunotes.fragments.SubjectFragment
+import com.example.ipunotes.models.Subject
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private val mainFragment = MainFragment()
-    private val subjectFragment = SubjectFragment()
+    private val subjectFragment = SubjectFragment(Subject("Applied Maths"))
     private val sharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(this)
     }

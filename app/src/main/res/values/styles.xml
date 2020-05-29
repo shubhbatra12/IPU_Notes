@@ -15,7 +15,7 @@
     <style name="LightTheme" parent="AppTheme">
         <item name="textColorPrimary">@color/black</item>
         <item name="textColorSecondary">@color/white</item>
-        <item name="circleBackground">@color/blue</item>
+        <item name="labelBackgroundColor">@color/blue</item>
         <item name="backgroundPrimary">@color/white</item>
         <item name="backgroundSecondary">@color/white</item>
     </style>
@@ -23,14 +23,15 @@
     <style name="DarkTheme" parent="AppTheme">
         <item name="textColorPrimary">@color/black</item>
         <item name="textColorSecondary">@color/white</item>
-        <item name="circleBackground">@color/blue</item>
+        <item name="labelBackgroundColor">@color/blue</item>
         <item name="backgroundPrimary">@color/white</item>
+        <item name="backgroundSecondary">@color/white</item>
     </style>
 
     <style name="BlackTheme" parent="AppTheme">
         <item name="textColorPrimary">@color/white</item>
         <item name="textColorSecondary">@color/white</item>
-        <item name="circleBackground">@color/blue</item>
+        <item name="labelBackgroundColor">@color/blue</item>
         <item name="backgroundPrimary">@color/black</item>
         <item name="backgroundSecondary">@color/grey</item>
 

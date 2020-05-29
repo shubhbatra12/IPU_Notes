@@ -16,7 +16,7 @@
             android:layout_width="74dp"
             android:layout_height="67dp"
             android:layout_gravity="center"
-            android:background="@color/colorPrimary" />
+            android:background="?attr/labelBackgroundColor" />
 
         <TextView
             android:id="@+id/tvSubjectLabel"
