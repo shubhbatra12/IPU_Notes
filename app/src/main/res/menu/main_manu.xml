@@ -4,4 +4,12 @@
     <item
         android:title="@string/settings"
         android:id="@+id/settingsOption" />
+
+    <item
+        android:title="Main Fragment"
+        android:id="@+id/testingOption" />
+
+    <item
+        android:title="Subject Fragment"
+        android:id="@+id/testingOptioN" />
 </menu>
