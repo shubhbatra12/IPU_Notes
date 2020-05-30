@@ -7,17 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.ipunotes.R
-import com.example.ipunotes.adapters.SubjectsAdapter
-import com.example.ipunotes.models.File
+
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
 
-class NotesFragment : Fragment() {
-
-    private val notesList = ArrayList<File>()
-    //private val notesAdapter = PdfAdapter(notesList)
+class PaperFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -25,7 +26,7 @@ class NotesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notes, container, false)
+        return inflater.inflate(R.layout.fragment_paper, container, false)
     }
 
 }

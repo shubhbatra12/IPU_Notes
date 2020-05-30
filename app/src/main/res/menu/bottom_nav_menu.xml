@@ -13,6 +13,11 @@
         android:icon="@drawable/icons8spiralboundbooklet"
         android:title="Files"/>
     <item
+        android:id="@+id/paperBtnF"
+        android:enabled="true"
+        android:icon="@drawable/icons8questions"
+        android:title="Exam"/>
+    <item
         android:id="@+id/videoBtnF"
         android:enabled="true"
         android:icon="@drawable/icons8video"
