@@ -5,11 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ipunotes.R
+import com.example.ipunotes.fragments.MainFragment
 import com.example.ipunotes.models.Subject
 import kotlinx.android.synthetic.main.subject_item_view.view.*
 
 class SubjectsAdapter(
-    private val onSubjectClickListener: OnSubjectClickListener,
+    private val onSubjectClickListener: MainFragment,
     private val list: List<Subject>
 ) : RecyclerView.Adapter<SubjectsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubjectsViewHolder =
@@ -25,6 +26,7 @@ class SubjectsAdapter(
     override fun onBindViewHolder(holder: SubjectsViewHolder, position: Int) {
         holder.bind(list[position])
     }
+
 
 
 }

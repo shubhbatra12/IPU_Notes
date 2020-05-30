@@ -62,22 +62,7 @@ class MainActivity : AppCompatActivity() {
             R.id.settingsOption -> {
                 startActivity(Intent(this, SettingsActivity::class.java))
             }
-            R.id.testingOption -> {
-                if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                    supportFragmentManager.beginTransaction().replace(R.id.container, mainFragment)
-                        .commit()
-                } else {
-                    Toast.makeText(this,"This is for Accessing Main fragment In potrait",Toast.LENGTH_SHORT).show()
-                }
-            }
-            R.id.testingOptioN -> {
-                if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                    supportFragmentManager.beginTransaction().replace(R.id.container, subjectFragment)
-                        .commit()
-                } else {
-                    Toast.makeText(this,"This is for Accessing Subject fragment In potrait",Toast.LENGTH_SHORT).show()
-                }
-            }
+
         }
         return super.onOptionsItemSelected(item)
     }

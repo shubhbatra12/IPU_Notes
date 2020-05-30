@@ -43,6 +43,7 @@ class SubjectFragment(private val subject: Subject = Subject("")) : Fragment() {
         viewPagerAdapter?.apply {
             add(NotesFragment())
             add(FileFragment())
+            add(PaperFragment())
             add(VideoFragment())
         }
         SubViewPagerF.adapter = viewPagerAdapter
@@ -57,8 +58,12 @@ class SubjectFragment(private val subject: Subject = Subject("")) : Fragment() {
                     SubViewPagerF.setCurrentItem(1)
                     true
                 }
-                R.id.videoBtnF -> {
+                R.id.paperBtnF -> {
                     SubViewPagerF.setCurrentItem(2)
+                    true
+                }
+                R.id.videoBtnF -> {
+                    SubViewPagerF.setCurrentItem(3)
                     true
                 }
                 else -> false
