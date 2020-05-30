@@ -32,7 +32,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/container1"/>
+                android:id="@+id/container1"
+                tools:layout="@layout/fragment_main"/>
 
             <View
                 android:id="@+id/divider"
@@ -44,7 +45,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.8"
-                android:id="@+id/container2"/>
+                android:id="@+id/container2"
+                tools:layout="@layout/fragment_subject"/>
         </LinearLayout>
     </LinearLayout>
 

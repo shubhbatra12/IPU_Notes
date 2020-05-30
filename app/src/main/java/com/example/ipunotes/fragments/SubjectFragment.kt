@@ -5,14 +5,16 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.example.ipunotes.R
 import com.example.ipunotes.adapters.ViewPagerAdapter
+import com.example.ipunotes.models.Subject
 import kotlinx.android.synthetic.main.fragment_subject.*
 
 
-class SubjectFragment : Fragment() {
+class SubjectFragment(private val subject: Subject = Subject("")) : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,4 +91,9 @@ class SubjectFragment : Fragment() {
 
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = subject.name
+
+    }
 }

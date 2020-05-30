@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid
-        android:color="?attr/circleBackground" />
+        android:color="?attr/labelBackgroundColor" />
     <size
         android:height="@dimen/circleDiameter"
         android:width="@dimen/circleDiameter"/>

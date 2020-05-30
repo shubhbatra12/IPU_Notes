@@ -2,7 +2,7 @@
 <resources>
     <attr name="textColorPrimary"/>
     <attr name="textColorSecondary"/>
-    <attr name="circleBackground"/>
+    <attr name="labelBackgroundColor"/>
     <attr name="backgroundPrimary"/>
     <attr name="backgroundSecondary"/>
 </resources>
