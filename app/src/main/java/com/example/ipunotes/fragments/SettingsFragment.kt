@@ -1,6 +1,7 @@
 package com.example.ipunotes.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
@@ -20,18 +21,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         loadDefaultPreferences()
 
-        sharedPreferences.registerOnSharedPreferenceChangeListener { sharedPreferences, key ->
-            when (key) {
-                THEME_KEY -> {
-                    sharedPreferencesEditor.putBoolean(THEME_CHANGED, true).commit()
-                    activity?.recreate()
-                }
-                LANGUAGE_KEY -> {
-                    sharedPreferencesEditor.putBoolean(LANGUAGE_CHANGED, true).commit()
-                    activity?.recreate()
-                }
-            }
-        }
     }
 
     private fun loadDefaultPreferences() {
