@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        android:title="Course">
+        <ListPreference
+            android:title="Branch"
+            android:key="branch"
+            android:entries="@array/branchPreferences"
+            android:entryValues="@array/branchPreferencesValues"
+            app:useSimpleSummaryProvider="true"/>
+        <ListPreference
+            android:title="Semester"
+            android:key="semester"
+            android:entries="@array/semPreferences"
+            android:entryValues="@array/semPreferencesValues"
+            app:useSimpleSummaryProvider="true"/>
 
+    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/userInterface">
         <ListPreference
