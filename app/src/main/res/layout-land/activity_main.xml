@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/drawer">
+    android:id="@+id/drawer"
+    android:background="?attr/backgroundPrimary">
 
 
     <com.google.android.material.navigation.NavigationView
@@ -20,7 +21,8 @@
         android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/toolbar_background"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="@string/app_name" />
