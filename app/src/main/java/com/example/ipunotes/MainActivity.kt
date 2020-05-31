@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
@@ -41,6 +40,20 @@ class MainActivity : AppCompatActivity() {
         } else {
             initiateLandscapeSetup()
         }
+
+        navView.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.settingsOption -> {
+                    startActivity(Intent(this, SettingsActivity::class.java))
+                    return@setNavigationItemSelectedListener true
+                }
+                else -> {
+                    return@setNavigationItemSelectedListener false
+                }
+            }
+        }
+
+
     }
 
     private fun initiateLandscapeSetup() {
@@ -72,8 +85,7 @@ class MainActivity : AppCompatActivity() {
         if (sharedPreferences.getBoolean(THEME_CHANGED, false)) {
             sharedPreferencesEditor.putBoolean(THEME_CHANGED, false).commit()
             recreate()
-        }
-        else if(sharedPreferences.getBoolean(LANGUAGE_CHANGED, false)){
+        } else if (sharedPreferences.getBoolean(LANGUAGE_CHANGED, false)) {
             sharedPreferencesEditor.putBoolean(LANGUAGE_CHANGED, false).commit()
             recreate()
         }
