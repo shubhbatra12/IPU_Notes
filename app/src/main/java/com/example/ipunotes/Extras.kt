@@ -20,4 +20,13 @@ object Extras {
             BLACK_THEME -> context.setTheme(R.style.BlackTheme)
         }
     }
+
+    fun getLabel(string: String): String{
+        var label = string.substring(0, 1)
+        val words = string.split(" ")
+        if (words.size > 1) {
+            label += words[1].substring(0, 1)
+        }
+        return label
+    }
 }

@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:padding="10dp"
     android:id="@+id/changeFragment"
-    android:background="@android:color/transparent"
+    android:background="?attr/backgroundSecondary"
     tools:theme="@style/LightTheme">
 
     <FrameLayout

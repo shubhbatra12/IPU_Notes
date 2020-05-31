@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.NotesFragment"
-    tools:theme="@style/BlackTheme">
-
+    tools:theme="@style/LightTheme">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNotes"
@@ -15,15 +14,15 @@
         android:background="?attr/backgroundPrimary"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="7"
-        tools:listitem="@layout/pdf_item_view" />
+        tools:listitem="@layout/file_item_view" />
 
-    <TextView
+    <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Notes"
-        android:textColor="?attr/textColorPrimary"
-        android:textSize="50dp" />
+        android:id="@+id/shimmerLayout">
 
+        <include layout="@layout/shimmer_layout"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </FrameLayout>

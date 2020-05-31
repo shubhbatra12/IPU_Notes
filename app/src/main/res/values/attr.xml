@@ -5,4 +5,5 @@
     <attr name="labelBackgroundColor"/>
     <attr name="backgroundPrimary"/>
     <attr name="backgroundSecondary"/>
+    <attr name="textColorTertiary"/>
 </resources>
