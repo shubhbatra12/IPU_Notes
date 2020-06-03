@@ -13,9 +13,11 @@ class SplashActivity : AppCompatActivity() {
         GlobalScope.launch {
             delay(1000)
             withContext(Dispatchers.Main){
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                overridePendingTransition(R.anim.slide_in_bottom,R.anim.slide_out_top)
                 finish()
             }
         }
     }
+
 }
