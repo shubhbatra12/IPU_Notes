@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "338723562817",
+    "firebase_url": "https://ipunotesauthentication.firebaseio.com",
+    "project_id": "ipunotesauthentication",
+    "storage_bucket": "ipunotesauthentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338723562817:android:facdde1edb7003c07c6dc0",
+        "android_client_info": {
+          "package_name": "com.example.ipunotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338723562817-na1crffel92pq910rnjp6kuvmt4vscr5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ipunotes",
+            "certificate_hash": "f85c5ffd310f50f542fa369c4aaf97f708783f26"
+          }
+        },
+        {
+          "client_id": "338723562817-ri8ke7f21ep6q4qik7ojvtst8u7d9svp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5ThN-vYRDejSvmKhCpOwuBVMyvWInh8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338723562817-ri8ke7f21ep6q4qik7ojvtst8u7d9svp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
