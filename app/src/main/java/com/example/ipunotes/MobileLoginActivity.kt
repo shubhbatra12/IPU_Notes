@@ -3,6 +3,8 @@ package com.example.ipunotes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import androidx.preference.PreferenceManager
 import kotlinx.android.synthetic.main.activity_mobile_login.*
 
@@ -21,18 +23,13 @@ class MobileLoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_mobile_login)
 
         sendOtpBtn.setOnClickListener {
-            otpText.visibility = View.VISIBLE
-            submitBtn.visibility = View.VISIBLE
-        }
-    }
-    override fun onResume() {
-        super.onResume()
-        if (sharedPreferences.getBoolean(THEME_CHANGED, false)) {
-            sharedPreferencesEditor.putBoolean(THEME_CHANGED, false).commit()
-            recreate()
-        } else if (sharedPreferences.getBoolean(LANGUAGE_CHANGED, false)) {
-            sharedPreferencesEditor.putBoolean(LANGUAGE_CHANGED, false).commit()
-            recreate()
+            val number = etNumber.text.toString()
+            if(number.length != 10 || !number.isDigitsOnly()){
+                Toast.makeText(this, getString(R.string.invalidNumber), Toast.LENGTH_SHORT).show()
+            }else {
+                otpText.visibility = View.VISIBLE
+                submitBtn.visibility = View.VISIBLE
+            }
         }
     }
 

@@ -35,15 +35,4 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (sharedPreferences.getBoolean(THEME_CHANGED, false)) {
-            sharedPreferencesEditor.putBoolean(THEME_CHANGED, false).commit()
-            recreate()
-        } else if (sharedPreferences.getBoolean(LANGUAGE_CHANGED, false)) {
-            sharedPreferencesEditor.putBoolean(LANGUAGE_CHANGED, false).commit()
-            recreate()
-        }
-    }
-
 }
