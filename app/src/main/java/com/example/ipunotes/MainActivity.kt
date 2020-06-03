@@ -11,9 +11,14 @@ import androidx.preference.PreferenceManager
 import com.example.ipunotes.fragments.MainFragment
 import com.example.ipunotes.fragments.SubjectFragment
 import com.example.ipunotes.models.Subject
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
 
     private val mainFragment = MainFragment()
     private val subjectFragment = SubjectFragment(Subject("Applied Maths"))
@@ -45,6 +50,10 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.settingsOption -> {
                     startActivity(Intent(this, SettingsActivity::class.java))
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.logoutOption -> {
+                    auth.signOut()
                     return@setNavigationItemSelectedListener true
                 }
                 else -> {

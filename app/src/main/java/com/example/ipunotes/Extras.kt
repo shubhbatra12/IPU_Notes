@@ -1,6 +1,8 @@
 package com.example.ipunotes
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import androidx.preference.PreferenceManager
 
 const val THEME_KEY = "theme"
@@ -29,4 +31,5 @@ object Extras {
         }
         return label
     }
+
 }

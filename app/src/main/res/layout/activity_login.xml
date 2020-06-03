@@ -11,11 +11,17 @@
 
 
 
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
     android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
     android:layout_marginEnd="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:drawableEnd="@drawable/icons8android24"
     android:backgroundTint="?attr/labelBackgroundColor"
     android:textColor="?attr/textColorSecondary"
     android:layout_height="wrap_content"
@@ -28,30 +34,20 @@
         android:layout_width="match_parent"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="?attr/backgroundSecondary"
         android:textColor="?attr/textColorPrimary"
         android:layout_height="wrap_content"
         android:text="Continue with Google"
+        android:layout_alignParentBottom="true"
         android:drawableEnd="@drawable/icons8google24"
         android:id="@+id/googleBtn"
         android:textAllCaps="false"
         android:textSize="16sp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="64dp"
-        android:backgroundTint="?attr/labelBackgroundColor"
-        android:textColor="?attr/textColorSecondary"
-        android:layout_height="wrap_content"
-        android:text="Override Login"
-        android:id="@+id/skipBtn"
-        android:textAllCaps="false"
-        android:textSize="16sp" />
 
 
+</RelativeLayout>
 
 
 
