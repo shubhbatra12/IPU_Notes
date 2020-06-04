@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Extras.changeTheme(this)
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolbar)
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.logoutOption -> {
                     auth.signOut()
+                    finish()
                     return@setNavigationItemSelectedListener true
                 }
                 else -> {
