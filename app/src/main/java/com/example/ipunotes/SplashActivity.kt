@@ -25,9 +25,9 @@ class SplashActivity : AppCompatActivity() {
                         finish()
                     }
                     else {
-                        startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-                        overridePendingTransition(R.anim.slide_in_bottom,R.anim.slide_out_top)
-                        finish()
+                            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                            overridePendingTransition(R.anim.slide_in_bottom,R.anim.slide_out_top)
+                            finish()
                     }
                 }
 
