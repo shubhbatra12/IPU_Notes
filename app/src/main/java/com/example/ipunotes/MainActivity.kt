@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val mainFragment = MainFragment()
-    private val subjectFragment = SubjectFragment(Subject("Applied Maths"))
+    private val subjectFragment = SubjectFragment(Subject("","Applied Maths"))
     private val sharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(this)
     }

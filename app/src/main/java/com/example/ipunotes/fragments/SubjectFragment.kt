@@ -14,7 +14,7 @@ import com.example.ipunotes.models.Subject
 import kotlinx.android.synthetic.main.fragment_subject.*
 
 
-class SubjectFragment(private val subject: Subject = Subject("")) : Fragment() {
+class SubjectFragment(private val subject: Subject = Subject("","")) : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

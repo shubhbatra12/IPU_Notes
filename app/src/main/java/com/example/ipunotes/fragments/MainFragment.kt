@@ -33,8 +33,8 @@ class MainFragment : Fragment(), OnSubjectClickListener {
 
         subjectsList.clear()
 
-        subjectsList.add(Subject("Applied Maths"))
-        subjectsList.add(Subject("Communication System"))
+        subjectsList.add(Subject("","Applied Maths"))
+        subjectsList.add(Subject("","Communication System"))
         subjectsAdapter.notifyDataSetChanged()
 
     }
