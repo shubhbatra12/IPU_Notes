@@ -61,14 +61,9 @@ class MobileLoginActivity : AppCompatActivity() {
 
                     if (e is FirebaseAuthInvalidCredentialsException) {
                         // Invalid request
-                        // ...
                     } else if (e is FirebaseTooManyRequestsException) {
                         // The SMS quota for the project has been exceeded
-                        // ...
                     }
-
-                    // Show a message and update the UI
-                    // ...
                 }
 
                 override fun onCodeSent(
@@ -96,11 +91,8 @@ class MobileLoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("TAG", "signInWithCredential:success")
-                    startActivity(Intent(this,MainActivity::class.java))
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
                     finish()
                     val user = task.result?.user
-                    // ...
                 } else {
                     Toast.makeText(this, "Authentication Failed", Toast.LENGTH_SHORT).show()
                     Log.w("TAG", "signInWithCredential:failure", task.exception)
