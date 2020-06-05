@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="1000dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SubjectSelectionFragment"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="15dp"
+    android:orientation="vertical"
+    android:background="?attr/backgroundSecondary"
+    tools:theme="@style/LightTheme"
+    tools:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="?attr/textColorPrimary"
+        android:text="@string/addSubject"
+        android:textStyle="bold"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rvAllSubjects"
+        android:layout_marginVertical="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <TextView
+        android:id="@+id/tvDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="2dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/done"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="18sp"
+        android:layout_marginEnd="10dp"/>
+
+</LinearLayout>

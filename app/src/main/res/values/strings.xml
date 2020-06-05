@@ -14,5 +14,7 @@
     <string name="themeKey">theme</string>
     <string name="languageKey">language</string>
     <string name="invalidNumber">Invalid Number</string>
+    <string name="addSubject">Add Subject</string>
+    <string name="done">Done</string>
 
 </resources>

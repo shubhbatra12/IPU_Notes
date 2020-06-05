@@ -1,11 +1,13 @@
 package com.example.ipunotes.fragments
 
+import android.app.Dialog
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -41,6 +43,15 @@ class MainFragment : Fragment(), OnSubjectClickListener {
         subjectsList.addAll(viewModel.getAllSubjectsList())
         subjectsAdapter.notifyDataSetChanged()
 
+        fabAddMySubject.setOnClickListener {
+            openSubjectSelectionDialog()
+        }
+
+    }
+
+    private fun openSubjectSelectionDialog() {
+        val subjectSelectionDialog = SubjectSelectionFragment()
+        subjectSelectionDialog.show(parentFragmentManager,null)
     }
 
     override fun onSubjectClick(position: Int) {
