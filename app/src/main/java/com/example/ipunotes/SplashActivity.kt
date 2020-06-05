@@ -21,16 +21,14 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        auth.addAuthStateListener {
-            if (it.currentUser != null) {
-                Log.d(TAG, "onCreate: current user not null")
-                startMainActivity()
-            } else {
-                Log.d(TAG, "onCreate: current user null")
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-                overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top)
-                finish()
-            }
+        if (auth.currentUser != null) {
+            Log.d(TAG, "onCreate: current user not null")
+            startMainActivity()
+        } else {
+            Log.d(TAG, "onCreate: current user null")
+            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top)
+            finish()
         }
 
     }
