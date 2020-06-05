@@ -6,14 +6,15 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.ipunotes.COL_SUBJECT_ID
 import com.example.ipunotes.COL_SUBJECT_NAME
+import com.example.ipunotes.DB_NAME
 import com.example.ipunotes.TABLE_NAME
 import com.example.ipunotes.models.Subject
 
-class DatabaseHandler(context: Context): SQLiteOpenHelper(context, "", null, 1) {
+class DatabaseHandler(context: Context): SQLiteOpenHelper(context, DB_NAME, null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query = """create table $TABLE_NAME (
-                $COL_SUBJECT_ID text primary key,
-                $COL_SUBJECT_NAME text)"""
+                    $COL_SUBJECT_ID text primary key, 
+                    $COL_SUBJECT_NAME text)"""
         db?.execSQL(query)
     }
 

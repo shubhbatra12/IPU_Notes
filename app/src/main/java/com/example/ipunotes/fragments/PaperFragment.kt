@@ -1,25 +1,20 @@
 package com.example.ipunotes.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.ipunotes.AppViewModel
+import com.example.ipunotes.Extras
 import com.example.ipunotes.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 
 class PaperFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+//    private val viewModel by lazy {
+//        ViewModelProvider(Extras.myApp, ViewModelProvider.AndroidViewModelFactory(requireActivity().application)).get(AppViewModel::class.java)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,4 +24,7 @@ class PaperFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_paper, container, false)
     }
 
+    fun refreshList() {
+
+    }
 }
