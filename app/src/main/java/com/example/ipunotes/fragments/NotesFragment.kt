@@ -33,20 +33,26 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        rvNotes.visibility = View.VISIBLE
+        messageView.visibility = View.INVISIBLE
         rvNotes.adapter = notesAdapter
 
         shimmerLayout.startShimmer()
         GlobalScope.launch {
             delay(5000)
             withContext(Dispatchers.Main){
-                notesList.add(File("Unit 1 notes", "Dhruv", "01/01/2020"))
-                notesList.add(File("Unit 1 notes", "Dhruv", "01/01/2020"))
-                notesList.add(File("Unit 1 notes", "Dhruv", "01/01/2020"))
-                notesList.add(File("Unit 1 notes", "Dhruv", "01/01/2020"))
-                notesAdapter.notifyDataSetChanged()
-                shimmerLayout.stopShimmer()
-                shimmerLayout.visibility = View.GONE
+                if(notesAdapter.itemCount!=0){
+                    notesAdapter.notifyDataSetChanged()
+                    shimmerLayout.stopShimmer()
+                    shimmerLayout.visibility = View.GONE
+                } else {
+
+                    rvNotes.visibility = View.INVISIBLE
+                    messageView.visibility = View.VISIBLE
+                    shimmerLayout.stopShimmer()
+                    shimmerLayout.visibility = View.GONE
+                }
+
             }
         }
     }

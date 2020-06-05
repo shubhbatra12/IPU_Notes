@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.NotesFragment"
+    android:orientation="vertical"
     tools:theme="@style/LightTheme">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,17 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="7"
         tools:listitem="@layout/file_item_view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:visibility="invisible"
+        android:textSize="16sp"
+        android:text="Sorry for inconvenience , No files."
+        android:textColor="?attr/textColorPrimary"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="match_parent"
