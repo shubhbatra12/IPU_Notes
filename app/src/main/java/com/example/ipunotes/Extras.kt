@@ -20,6 +20,7 @@ const val COL_SUBJECT_ID = "Id"
 const val COL_SUBJECT_NAME = "Name"
 
 object Extras {
+    val myApp = MyApp()
     fun changeTheme(context: Context) {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         when (sharedPreferences.getString(THEME_KEY, LIGHT_THEME.toString())?.toInt()) {
