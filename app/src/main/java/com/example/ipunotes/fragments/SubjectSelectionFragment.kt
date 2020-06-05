@@ -9,13 +9,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.ipunotes.AppViewModel
 import com.example.ipunotes.Extras
 import com.example.ipunotes.R
+import com.example.ipunotes.adapters.OnSubjectSelectionChangedListener
 import com.example.ipunotes.adapters.SubjectSelectionAdapter
 import com.example.ipunotes.adapters.SubjectsAdapter
 import com.example.ipunotes.models.Subject
 import kotlinx.android.synthetic.main.fragment_subject_selection.*
 
 
-class SubjectSelectionFragment : DialogFragment() {
+class SubjectSelectionFragment : DialogFragment(),OnSubjectSelectionChangedListener {
 
     private val selectedSubjectsList = ArrayList<Subject>()
     private val allSubjectsList = ArrayList<Subject>()
@@ -24,7 +25,7 @@ class SubjectSelectionFragment : DialogFragment() {
     private val viewModel by lazy {
         ViewModelProvider(Extras.myApp).get(AppViewModel::class.java)
     }
-    private val adapter = SubjectSelectionAdapter(selectedSubjectsList, notSelectedSubjectsList)
+    private val adapter = SubjectSelectionAdapter(this, selectedSubjectsList, notSelectedSubjectsList)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,5 +58,18 @@ class SubjectSelectionFragment : DialogFragment() {
         for (subject in selectedSubjectsList) {
             notSelectedSubjectsList.remove(subject)
         }
+    }
+
+    override fun onSubjectClick(subject: Subject, isSelected: Boolean) {
+        if(isSelected){
+            selectedSubjectsList.add(subject)
+            notSelectedSubjectsList.remove(subject)
+            viewModel.addMySubject(subject)
+        }else{
+            notSelectedSubjectsList.add(subject)
+            selectedSubjectsList.remove(subject)
+            viewModel.removeMySubject(subject)
+        }
+        adapter.notifyDataSetChanged()
     }
 }
