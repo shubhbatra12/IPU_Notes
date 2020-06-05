@@ -38,7 +38,7 @@ class SplashActivity : AppCompatActivity() {
     private fun startMainActivity() {
 
         viewModel.loadAllSubjects()
-//        viewModel.loadMySubjects()
+        viewModel.loadMySubjects()
         viewModel.allSubjectsListUpdated.observe(this, Observer {
             Log.d(TAG, "startMainActivity: allSubjectLstUpdated changed: ${viewModel.allSubjectsListUpdated.value}")
             if (it) {
