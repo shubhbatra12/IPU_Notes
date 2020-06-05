@@ -1,27 +1,27 @@
 package com.example.ipunotes.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.ipunotes.AppViewModel
+import com.example.ipunotes.Extras
 import com.example.ipunotes.R
 import com.example.ipunotes.adapters.NotesAdapter
-import com.example.ipunotes.adapters.SubjectsAdapter
 import com.example.ipunotes.models.File
 import kotlinx.android.synthetic.main.fragment_notes.*
-import kotlinx.coroutines.*
 
 
 class NotesFragment : Fragment() {
 
+    private val viewModel by lazy {
+        ViewModelProvider(Extras.myApp).get(AppViewModel::class.java)
+    }
     private val notesList = ArrayList<File>()
     private val notesAdapter = NotesAdapter(notesList)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,27 +33,30 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rvNotes.visibility = View.VISIBLE
-        messageView.visibility = View.INVISIBLE
+
         rvNotes.adapter = notesAdapter
-
-        shimmerLayout.startShimmer()
-        GlobalScope.launch {
-            delay(5000)
-            withContext(Dispatchers.Main){
-                if(notesAdapter.itemCount!=0){
-                    notesAdapter.notifyDataSetChanged()
-                    shimmerLayout.stopShimmer()
-                    shimmerLayout.visibility = View.GONE
-                } else {
-
-                    rvNotes.visibility = View.INVISIBLE
-                    messageView.visibility = View.VISIBLE
-                    shimmerLayout.stopShimmer()
-                    shimmerLayout.visibility = View.GONE
-                }
-
+        viewModel.subjectContentsUpdating.observe(viewLifecycleOwner, Observer {
+            if(it){
+                startLoadingEffect()
+            }else{
+                stopLoadingEffect()
             }
-        }
+        })
+    }
+
+    fun refreshList() {
+        notesList.clear()
+        notesList.addAll(viewModel.getNotesList())
+        notesAdapter.notifyDataSetChanged()
+    }
+
+    fun startLoadingEffect() {
+        shimmerLayout?.visibility = View.VISIBLE
+        shimmerLayout?.startShimmer()
+    }
+
+    fun stopLoadingEffect() {
+        shimmerLayout?.stopShimmer()
+        shimmerLayout?.visibility = View.GONE
     }
 }

@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.example.ipunotes.fragments.MainFragment
 import com.example.ipunotes.fragments.SubjectFragment
@@ -19,9 +20,14 @@ class MainActivity : AppCompatActivity() {
     private val auth by lazy {
         FirebaseAuth.getInstance()
     }
+    private val viewModel by lazy {
+        ViewModelProvider(Extras.myApp).get(AppViewModel::class.java)
+    }
+    private val subjectFragment by lazy {
+        SubjectFragment(viewModel.getAllSubjectsList()[0])
+    }
 
     private val mainFragment = MainFragment()
-    private val subjectFragment = SubjectFragment(Subject("","Applied Maths"))
     private val sharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(this)
     }

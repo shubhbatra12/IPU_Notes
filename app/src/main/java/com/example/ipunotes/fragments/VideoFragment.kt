@@ -1,23 +1,21 @@
 package com.example.ipunotes.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.ipunotes.AppViewModel
+import com.example.ipunotes.Extras
 import com.example.ipunotes.R
 
 
 class VideoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+//    private val viewModel by lazy {
+//        ViewModelProvider(Extras.myApp, ViewModelProvider.AndroidViewModelFactory(requireActivity().application)).get(AppViewModel::class.java)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,5 +25,7 @@ class VideoFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_video, container, false)
     }
 
+    fun refreshList() {
 
+    }
 }

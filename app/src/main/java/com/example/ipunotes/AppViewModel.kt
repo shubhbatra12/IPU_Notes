@@ -1,6 +1,7 @@
 package com.example.ipunotes
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.ipunotes.models.File
@@ -8,10 +9,11 @@ import com.example.ipunotes.models.Subject
 import com.example.ipunotes.models.Video
 import com.example.ipunotes.retrofit.FirebaseClient
 import com.example.ipunotes.sql.DatabaseHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+private const val TAG = "AppViewModel"
 
 class AppViewModel(val app: Application) : AndroidViewModel(app) {
 
@@ -29,67 +31,140 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
     val subjectContentsUpdating = MutableLiveData(false)
 
     fun loadAllSubjects() {
-        GlobalScope.launch(Dispatchers.Main) {
-            val response = withContext(Dispatchers.IO) { FirebaseClient.api.getAllSubjects() }
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    allSubjectsList.clear()
-                    allSubjectsList.addAll(it)
-                    allSubjectsListUpdated.postValue(true)
-                }
+        FirebaseClient.api.getAllSubjects().enqueue(object : Callback<HashMap<String, Subject>> {
+            override fun onFailure(call: Call<HashMap<String, Subject>>, t: Throwable) {
+                Log.d(TAG, "onFailure: ")
+                t.printStackTrace()
             }
-        }
+
+            override fun onResponse(
+                call: Call<HashMap<String, Subject>>,
+                response: Response<HashMap<String, Subject>>
+            ) {
+                if (response.isSuccessful) {
+                    Log.d(TAG, "onResponse: success")
+                    allSubjectsList.clear()
+                    response.body()?.let { map ->
+                        map.keys.forEach {
+                            map[it]?.let { it1 -> allSubjectsList.add(it1) }
+                        }
+                    }
+                } else {
+                    Log.d(TAG, "onResponse: failed")
+                }
+                allSubjectsListUpdated.postValue(true)
+            }
+        })
+
     }
 
     fun loadSubjectContents(subjectId: String) {
-        GlobalScope.launch(Dispatchers.Main) {
-            subjectContentsUpdating.postValue(true)
-            val notesResponse =
-                withContext(Dispatchers.IO) { FirebaseClient.api.getNotes(subjectId) }
-            val practicalFilesResponse =
-                withContext(Dispatchers.IO) { FirebaseClient.api.getPracticalFiles(subjectId) }
-            val examsResponse =
-                withContext(Dispatchers.IO) { FirebaseClient.api.getExams(subjectId) }
-            val videosResponse =
-                withContext(Dispatchers.IO) { FirebaseClient.api.getVideos(subjectId) }
+        subjectContentsUpdating.postValue(true)
+        Log.d(TAG, "loadSubjectContents: ")
+        var notesLoaded = false
+        var filesLoaded = false
+        var videosLoaded = false
+        var examsLoaded = false
+        FirebaseClient.api.getNotes(subjectId).enqueue(object : Callback<HashMap<String, File>> {
+            override fun onFailure(call: Call<HashMap<String, File>>, t: Throwable) {
+                t.printStackTrace()
+            }
 
-            if (notesResponse.isSuccessful) {
-                notesResponse.body()?.let {
-                    notesList.clear()
-                    notesList.addAll(it)
-                }
-            } else {
+            override fun onResponse(
+                call: Call<HashMap<String, File>>,
+                response: Response<HashMap<String, File>>
+            ) {
                 notesList.clear()
+                response.body()?.let { map ->
+                    map.keys.forEach {
+                        map[it]?.let { it1 -> notesList.add(it1) }
+                    }
+                }
+                if (filesLoaded and videosLoaded and examsLoaded) {
+                    Log.d(TAG, "onResponse: All loaded")
+                    subjectContentsUpdating.postValue(false)
+                } else {
+                    Log.d(TAG, "onResponse: notes loaded")
+                    notesLoaded = true
+                }
             }
-            if (practicalFilesResponse.isSuccessful) {
-                practicalFilesResponse.body()?.let {
+        })
+        FirebaseClient.api.getPracticalFiles(subjectId)
+            .enqueue(object : Callback<HashMap<String, File>> {
+                override fun onFailure(call: Call<HashMap<String, File>>, t: Throwable) {
+                    t.printStackTrace()
+                }
+
+                override fun onResponse(
+                    call: Call<HashMap<String, File>>,
+                    response: Response<HashMap<String, File>>
+                ) {
                     practicalFilesList.clear()
-                    practicalFilesList.addAll(it)
+                    response.body()?.let { map ->
+                        map.keys.forEach {
+                            map[it]?.let { it1 -> practicalFilesList.add(it1) }
+                        }
+                    }
+                    if (notesLoaded and videosLoaded and examsLoaded) {
+                        Log.d(TAG, "onResponse: All loaded")
+                        subjectContentsUpdating.postValue(false)
+                    } else {
+                        Log.d(TAG, "onResponse: files loaded")
+                        filesLoaded = true
+                    }
                 }
-            } else {
-                practicalFilesList.clear()
+            })
+        FirebaseClient.api.getExams(subjectId).enqueue(object : Callback<HashMap<String, File>> {
+            override fun onFailure(call: Call<HashMap<String, File>>, t: Throwable) {
+                t.printStackTrace()
             }
-            if (examsResponse.isSuccessful) {
-                examsResponse.body()?.let {
-                    examsList.clear()
-                    examsList.addAll(it)
-                }
-            } else {
+
+            override fun onResponse(
+                call: Call<HashMap<String, File>>,
+                response: Response<HashMap<String, File>>
+            ) {
                 examsList.clear()
-            }
-            if (videosResponse.isSuccessful) {
-                videosResponse.body()?.let {
-                    videosList.clear()
-                    videosList.addAll(it)
+                response.body()?.let { map ->
+                    map.keys.forEach {
+                        map[it]?.let { it1 -> examsList.add(it1) }
+                    }
                 }
-            } else {
-                videosList.clear()
+                if (filesLoaded and videosLoaded and notesLoaded) {
+                    Log.d(TAG, "onResponse: All loaded")
+                    subjectContentsUpdating.postValue(false)
+                } else {
+                    Log.d(TAG, "onResponse: exams loaded")
+                    examsLoaded = true
+                }
             }
-            subjectContentsUpdating.postValue(false)
-        }
+        })
+        FirebaseClient.api.getVideos(subjectId).enqueue(object : Callback<HashMap<String, Video>> {
+            override fun onFailure(call: Call<HashMap<String, Video>>, t: Throwable) {
+                t.printStackTrace()
+            }
+
+            override fun onResponse(
+                call: Call<HashMap<String, Video>>,
+                response: Response<HashMap<String, Video>>
+            ) {
+                videosList.clear()
+                response.body()?.let { map ->
+                    map.keys.forEach {
+                        map[it]?.let { it1 -> videosList.add(it1) }
+                    }
+                }
+                if (filesLoaded and notesLoaded and examsLoaded) {
+                    Log.d(TAG, "onResponse: All loaded")
+                    subjectContentsUpdating.postValue(false)
+                } else {
+                    Log.d(TAG, "onResponse: videos loaded")
+                    videosLoaded = true
+                }
+            }
+        })
     }
 
-    fun loadMySubjects(){
+    fun loadMySubjects() {
         mySubjectsList.addAll(databaseHandler.getMySubjects())
     }
 

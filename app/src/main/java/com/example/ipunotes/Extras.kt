@@ -15,11 +15,13 @@ const val NOTES_KEY = "Notes"
 const val PRACTICAL_FILES_KEY = "PracticalFiles"
 const val EXAMS_KEY = "Exams"
 const val VIDEOS_KEY = "Videos"
+const val DB_NAME = "IpuNotes"
 const val TABLE_NAME = "MySubjects"
 const val COL_SUBJECT_ID = "Id"
 const val COL_SUBJECT_NAME = "Name"
 
 object Extras {
+    val myApp = MyApp()
     fun changeTheme(context: Context) {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         when (sharedPreferences.getString(THEME_KEY, LIGHT_THEME.toString())?.toInt()) {
