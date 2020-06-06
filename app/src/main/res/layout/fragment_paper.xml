@@ -7,7 +7,6 @@
     tools:context=".fragments.PaperFragment"
     tools:theme="@style/BlackTheme">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPaper"
         android:layout_width="match_parent"
@@ -18,12 +17,15 @@
         tools:listitem="@layout/file_item_view" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Question \nPaper"
-        android:textColor="?attr/textColorPrimary"
-        android:textSize="50dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:visibility="invisible"
+        android:textSize="16sp"
+        android:text="Sorry for inconvenience , No files."
+        android:textColor="?attr/textColorPrimary"/>
 
 
 </FrameLayout>
