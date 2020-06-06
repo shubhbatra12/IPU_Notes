@@ -1,10 +1,12 @@
 package com.example.ipunotes
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -12,8 +14,11 @@ import androidx.preference.PreferenceManager
 import com.example.ipunotes.fragments.MainFragment
 import com.example.ipunotes.fragments.SubjectFragment
 import com.example.ipunotes.models.Subject
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.drawer_header.*
+import kotlinx.android.synthetic.main.drawer_header.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences.edit()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         Extras.changeTheme(this)
         super.onCreate(savedInstanceState)
@@ -63,7 +69,12 @@ class MainActivity : AppCompatActivity() {
             initiateLandscapeSetup()
         }
 
-        navView.setNavigationItemSelectedListener { item ->
+        val mNavigationView : NavigationView = navView
+        mNavigationView.inflateHeaderView(R.layout.drawer_header)
+        //navView.userNameDrawer.text = "Hello"
+
+
+        mNavigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.settingsOption -> {
                     startActivity(Intent(this, SettingsActivity::class.java))
