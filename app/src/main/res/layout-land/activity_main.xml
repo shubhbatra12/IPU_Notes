@@ -2,40 +2,36 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/drawer"
-    android:background="?attr/backgroundPrimary">
+    android:background="?attr/backgroundPrimary"
+    tools:context=".MainActivity">
 
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:menu="@menu/drawer_menu"
-        android:layout_gravity="start"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:background="@drawable/toolbar_background"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/toolbar_background"
             app:title="@string/app_name" />
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
             <FrameLayout
+                android:id="@+id/container1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/container1"
-                tools:layout="@layout/fragment_main"/>
+                tools:layout="@layout/fragment_main" />
 
             <View
                 android:id="@+id/divider"
@@ -44,13 +40,20 @@
                 android:background="?android:attr/listDivider" />
 
             <FrameLayout
+                android:id="@+id/container2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.8"
-                android:id="@+id/container2"
-                tools:layout="@layout/fragment_subject"/>
+                tools:layout="@layout/fragment_subject" />
         </LinearLayout>
     </LinearLayout>
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/drawer_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

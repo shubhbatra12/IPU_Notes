@@ -116,8 +116,8 @@ class SubjectFragment(private val subject: Subject = Subject("", "")) : Fragment
                 paperFragment.refreshList()
                 fileFragment.refreshList()
                 videoFragment.refreshList()
-//                viewModel.subjectContentsUpdating.removeObservers(viewLifecycleOwner)
             }else{
+                bottomNavBar.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_out_bottom))
                 bottomNavBar.visibility = View.GONE
             }
         })

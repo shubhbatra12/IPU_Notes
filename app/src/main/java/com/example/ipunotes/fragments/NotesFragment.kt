@@ -1,27 +1,30 @@
 package com.example.ipunotes.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.ipunotes.AppViewModel
 import com.example.ipunotes.Extras
 import com.example.ipunotes.R
-import com.example.ipunotes.adapters.NotesAdapter
+import com.example.ipunotes.adapters.FilesAdapter
+import com.example.ipunotes.adapters.FilesAdapterListeners
 import com.example.ipunotes.models.File
 import kotlinx.android.synthetic.main.fragment_notes.*
 
-
-class NotesFragment : Fragment() {
+private const val TAG = "NotesFragment"
+class NotesFragment : Fragment(), FilesAdapterListeners{
 
     private val viewModel by lazy {
         ViewModelProvider(Extras.myApp).get(AppViewModel::class.java)
     }
     private val notesList = ArrayList<File>()
-    private val notesAdapter = NotesAdapter(notesList)
+    private val notesAdapter = FilesAdapter(this, notesList)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,9 +37,6 @@ class NotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        rvNotes.visibility = View.VISIBLE
-        messageView.visibility = View.INVISIBLE
         rvNotes.adapter = notesAdapter
         viewModel.subjectContentsUpdating.observe(viewLifecycleOwner, Observer {
             if(it){
@@ -51,23 +51,35 @@ class NotesFragment : Fragment() {
         notesList.clear()
         notesList.addAll(viewModel.getNotesList())
         notesAdapter.notifyDataSetChanged()
-//        if(viewModel.getNotesList().isNotEmpty()){
-//            notesList.addAll(viewModel.getNotesList())
-//            notesAdapter.notifyDataSetChanged()
-//        } else {
-//            rvNotes.visibility = View.INVISIBLE
-//            messageView.visibility = View.VISIBLE
-//        }
-
     }
 
     fun startLoadingEffect() {
+        Log.d(TAG, "startLoadingEffect: ")
+        rvNotes.visibility = View.INVISIBLE
+        messageView.visibility = View.GONE
         shimmerLayout?.visibility = View.VISIBLE
         shimmerLayout?.startShimmer()
     }
 
     fun stopLoadingEffect() {
+        Log.d(TAG, "stopLoadingEffect: ")
+        rvNotes.visibility = View.VISIBLE
         shimmerLayout?.stopShimmer()
         shimmerLayout?.visibility = View.GONE
+    }
+
+    override fun onFileClick(position: Int) {
+
+    }
+
+    override fun isContentEmpty(value: Boolean) {
+        Log.d(TAG, "isContentEmpty: $value")
+        if(value){
+            rvNotes.visibility = View.INVISIBLE
+            messageView.visibility = View.VISIBLE
+        }else{
+            rvNotes.visibility = View.VISIBLE
+            messageView.visibility = View.GONE
+        }
     }
 }

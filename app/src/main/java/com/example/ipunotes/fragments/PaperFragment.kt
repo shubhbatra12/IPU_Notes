@@ -9,12 +9,18 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.ipunotes.AppViewModel
 import com.example.ipunotes.Extras
 import com.example.ipunotes.R
+import com.example.ipunotes.adapters.FilesAdapter
+import com.example.ipunotes.adapters.FilesAdapterListeners
+import com.example.ipunotes.models.File
+import kotlinx.android.synthetic.main.fragment_paper.*
 
-class PaperFragment : Fragment() {
+class PaperFragment : Fragment(), FilesAdapterListeners {
 
-//    private val viewModel by lazy {
-//        ViewModelProvider(Extras.myApp, ViewModelProvider.AndroidViewModelFactory(requireActivity().application)).get(AppViewModel::class.java)
-//    }
+    private val viewModel by lazy {
+        ViewModelProvider(Extras.myApp).get(AppViewModel::class.java)
+    }
+    private val examsList = ArrayList<File>()
+    private val adapter = FilesAdapter(this, examsList)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +30,30 @@ class PaperFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_paper, container, false)
     }
 
-    fun refreshList() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        rvPaper.adapter = adapter
+    }
+
+    fun refreshList() {
+        examsList.clear()
+        examsList.addAll(viewModel.getExamsList())
+        adapter.notifyDataSetChanged()
+    }
+
+
+    override fun onFileClick(position: Int) {
+
+    }
+
+    override fun isContentEmpty(value: Boolean) {
+        if (value) {
+            rvPaper.visibility = View.GONE
+            messageView.visibility = View.VISIBLE
+        } else {
+            rvPaper.visibility = View.VISIBLE
+            messageView.visibility = View.GONE
+        }
     }
 }
