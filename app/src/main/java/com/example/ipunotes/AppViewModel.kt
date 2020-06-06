@@ -62,6 +62,10 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
     fun loadSubjectContents(subjectId: String) {
         subjectContentsUpdating.postValue(true)
         Log.d(TAG, "loadSubjectContents: ")
+        notesList.clear()
+        practicalFilesList.clear()
+        examsList.clear()
+        videosList.clear()
         var notesLoaded = false
         var filesLoaded = false
         var videosLoaded = false
@@ -75,7 +79,6 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
                 call: Call<HashMap<String, File>>,
                 response: Response<HashMap<String, File>>
             ) {
-                notesList.clear()
                 response.body()?.let { map ->
                     map.keys.forEach {
                         map[it]?.let { it1 -> notesList.add(it1) }
@@ -100,7 +103,6 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
                     call: Call<HashMap<String, File>>,
                     response: Response<HashMap<String, File>>
                 ) {
-                    practicalFilesList.clear()
                     response.body()?.let { map ->
                         map.keys.forEach {
                             map[it]?.let { it1 -> practicalFilesList.add(it1) }
@@ -124,7 +126,6 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
                 call: Call<HashMap<String, File>>,
                 response: Response<HashMap<String, File>>
             ) {
-                examsList.clear()
                 response.body()?.let { map ->
                     map.keys.forEach {
                         map[it]?.let { it1 -> examsList.add(it1) }
@@ -148,7 +149,6 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
                 call: Call<HashMap<String, Video>>,
                 response: Response<HashMap<String, Video>>
             ) {
-                videosList.clear()
                 response.body()?.let { map ->
                     map.keys.forEach {
                         map[it]?.let { it1 -> videosList.add(it1) }
@@ -166,18 +166,19 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
     }
 
     fun loadMySubjects() {
+        mySubjectsList.clear()
         mySubjectsList.addAll(databaseHandler.getMySubjects())
         mySubjectsList.sort()
     }
 
-    fun addMySubject(subject: Subject){
+    fun addMySubject(subject: Subject) {
         mySubjectsList.add(subject)
         mySubjectsList.sort()
         databaseHandler.addNewSubject(subject)
         mySubjectsListUpdated.postValue(true)
     }
 
-    fun removeMySubject(subject: Subject){
+    fun removeMySubject(subject: Subject) {
         mySubjectsList.remove(subject)
         databaseHandler.removeSubject(subject)
         mySubjectsListUpdated.postValue(true)
