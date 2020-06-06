@@ -20,7 +20,7 @@ class NotesAdapter(private val list: List<File>) : RecyclerView.Adapter<NotesVie
     override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        holder.bind(list[position])
+            holder.bind(list[position])
     }
 
 }
