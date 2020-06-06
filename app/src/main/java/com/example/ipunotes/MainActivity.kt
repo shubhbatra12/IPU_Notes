@@ -4,9 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.drawer_header.*
 import kotlinx.android.synthetic.main.drawer_header.view.*
+import kotlinx.android.synthetic.main.drawer_header.view.userNameDrawer
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 SubjectFragment(viewModel.getAllSubjectsList()[0])
             }
             else -> {
-                SubjectFragment(Subject("",""))
+                SubjectFragment(Subject("", ""))
             }
         }
     }
@@ -54,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Extras.changeTheme(this)
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolbar)
@@ -69,12 +67,9 @@ class MainActivity : AppCompatActivity() {
             initiateLandscapeSetup()
         }
 
-        val mNavigationView : NavigationView = navView
-        mNavigationView.inflateHeaderView(R.layout.drawer_header)
-        navView.userNameDrawer.text = "Hello" //isko comment krke error nhi aayega
+        navView.getHeaderView(0).userNameDrawer.text = "Hello"
 
-
-        mNavigationView.setNavigationItemSelectedListener { item ->
+        navView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.settingsOption -> {
                     startActivity(Intent(this, SettingsActivity::class.java))
