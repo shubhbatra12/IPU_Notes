@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
         val mNavigationView : NavigationView = navView
         mNavigationView.inflateHeaderView(R.layout.drawer_header)
-        //navView.userNameDrawer.text = "Hello"
+        navView.userNameDrawer.text = "Hello" //isko comment krke error nhi aayega
 
 
         mNavigationView.setNavigationItemSelectedListener { item ->
