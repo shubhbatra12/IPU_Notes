@@ -29,6 +29,7 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
 
     val allSubjectsListUpdated = MutableLiveData(false)
     val subjectContentsUpdating = MutableLiveData(false)
+    val mySubjectsListUpdated = MutableLiveData(false)
 
     fun loadAllSubjects() {
         FirebaseClient.api.getAllSubjects().enqueue(object : Callback<HashMap<String, Subject>> {
@@ -52,10 +53,10 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
                 } else {
                     Log.d(TAG, "onResponse: failed")
                 }
+                allSubjectsList.sort()
                 allSubjectsListUpdated.postValue(true)
             }
         })
-
     }
 
     fun loadSubjectContents(subjectId: String) {
@@ -166,6 +167,20 @@ class AppViewModel(val app: Application) : AndroidViewModel(app) {
 
     fun loadMySubjects() {
         mySubjectsList.addAll(databaseHandler.getMySubjects())
+        mySubjectsList.sort()
+    }
+
+    fun addMySubject(subject: Subject){
+        mySubjectsList.add(subject)
+        mySubjectsList.sort()
+        databaseHandler.addNewSubject(subject)
+        mySubjectsListUpdated.postValue(true)
+    }
+
+    fun removeMySubject(subject: Subject){
+        mySubjectsList.remove(subject)
+        databaseHandler.removeSubject(subject)
+        mySubjectsListUpdated.postValue(true)
     }
 
     //Getters
