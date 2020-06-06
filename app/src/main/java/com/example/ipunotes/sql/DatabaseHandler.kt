@@ -45,4 +45,10 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context, DB_NAME, null
         }
         db.insert(TABLE_NAME, null, values)
     }
+    
+    fun removeSubject(subject: Subject){
+        val db = writableDatabase
+        val query = "delete from $TABLE_NAME where $COL_SUBJECT_ID = '${subject.id}'"
+        db.rawQuery(query, null).close()
+    }
 }

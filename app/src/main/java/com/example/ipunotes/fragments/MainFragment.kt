@@ -1,12 +1,15 @@
 package com.example.ipunotes.fragments
 
+import android.app.Dialog
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
@@ -37,10 +40,30 @@ class MainFragment : Fragment(), OnSubjectClickListener {
         rvSubjects.adapter = subjectsAdapter
         rvSubjects.addItemDecoration(DividerItemDecoration(context, VERTICAL))
 
-        subjectsList.clear()
-        subjectsList.addAll(viewModel.getAllSubjectsList())
-        subjectsAdapter.notifyDataSetChanged()
+        refreshList()
 
+        fabAddMySubject.setOnClickListener {
+            openSubjectSelectionDialog()
+        }
+
+        viewModel.mySubjectsListUpdated.observe(viewLifecycleOwner, Observer{
+            if(it){
+                refreshList()
+                viewModel.mySubjectsListUpdated.postValue(false)
+            }
+        })
+
+    }
+
+    private fun refreshList() {
+        subjectsList.clear()
+        subjectsList.addAll(viewModel.getMySubjectsList())
+        subjectsAdapter.notifyDataSetChanged()
+    }
+
+    private fun openSubjectSelectionDialog() {
+        val subjectSelectionDialog = SubjectSelectionFragment()
+        subjectSelectionDialog.show(parentFragmentManager,null)
     }
 
     override fun onSubjectClick(position: Int) {

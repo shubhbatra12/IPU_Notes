@@ -24,7 +24,17 @@ class MainActivity : AppCompatActivity() {
         ViewModelProvider(Extras.myApp).get(AppViewModel::class.java)
     }
     private val subjectFragment by lazy {
-        SubjectFragment(viewModel.getAllSubjectsList()[0])
+        when {
+            viewModel.getMySubjectsList().isNotEmpty() -> {
+                SubjectFragment(viewModel.getMySubjectsList()[0])
+            }
+            viewModel.getAllSubjectsList().isNotEmpty() -> {
+                SubjectFragment(viewModel.getAllSubjectsList()[0])
+            }
+            else -> {
+                SubjectFragment(Subject("",""))
+            }
+        }
     }
 
     private val mainFragment = MainFragment()
