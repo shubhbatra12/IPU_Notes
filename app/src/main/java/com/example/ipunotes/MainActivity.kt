@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +14,7 @@ import com.example.ipunotes.fragments.SubjectFragment
 import com.example.ipunotes.models.Subject
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.drawer_header.*
 import kotlinx.android.synthetic.main.drawer_header.view.*
@@ -67,7 +69,17 @@ class MainActivity : AppCompatActivity() {
             initiateLandscapeSetup()
         }
 
-        navView.getHeaderView(0).userNameDrawer.text = "Hello"
+    if (auth.currentUser?.phoneNumber.isNullOrEmpty()) {
+        navView.getHeaderView(0).userNameDrawer.text = auth.currentUser?.displayName
+        navView.getHeaderView(0).userIdDrawer.text = auth.currentUser?.email
+        Picasso.get().load(auth.currentUser?.photoUrl).into(navView.getHeaderView(0).imgViewDrawer)
+
+    } else {
+        navView.getHeaderView(0).userNameDrawer.text = auth.currentUser?.phoneNumber
+        navView.getHeaderView(0).userIdDrawer.visibility = View.INVISIBLE
+    }
+
+
 
         navView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
