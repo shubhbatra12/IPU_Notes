@@ -89,6 +89,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.logoutOption -> {
                     auth.signOut()
+                    startActivity(Intent(this, SplashActivity::class.java))
                     finish()
                     return@setNavigationItemSelectedListener true
                 }
