@@ -93,6 +93,11 @@ class MainActivity : AppCompatActivity() {
                     finish()
                     return@setNavigationItemSelectedListener true
                 }
+                R.id.profileOption -> {
+                    startActivity(Intent(this,ProfileActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
+                    return@setNavigationItemSelectedListener true
+                }
                 else -> {
                     return@setNavigationItemSelectedListener false
                 }

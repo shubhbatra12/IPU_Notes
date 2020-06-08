@@ -4,6 +4,10 @@
         android:id="@+id/settingsOption"
         android:title="Settings"/>
     <item
+        android:id="@+id/profileOption"
+        android:title="Profile"/>
+    <item
         android:id="@+id/logoutOption"
         android:title="Logout" />
+
 </menu>
