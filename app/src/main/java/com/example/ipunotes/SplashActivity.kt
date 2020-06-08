@@ -30,7 +30,6 @@ class SplashActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top)
             finish()
         }
-
     }
 
     private fun startMainActivity() {

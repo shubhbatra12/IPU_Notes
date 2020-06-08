@@ -1,24 +1,40 @@
-package com.example.ipunot
+package com.example.ipunotes
 
-import com.example.ipunotes.R
-
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.activity_user_profile.*
 
-class ProfileActivity : AppCompatActivity() {
-
+class UserProfileActivity : AppCompatActivity() {
     private val auth by lazy {
         FirebaseAuth.getInstance()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        Extras.changeTheme(this)
+        setContentView(R.layout.activity_user_profile)
+        loadContent()
 
+        if (auth.currentUser?.phoneNumber.isNullOrEmpty()){
+            profEmail.isClickable = false
+        } else {
+            profNumber.isClickable = false
+        }
+
+
+
+        saveBtnProfile.setOnClickListener {
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+        //Toast.makeText(this,auth.currentUser?.displayName,Toast.LENGTH_SHORT).show()
+    }
+
+    private fun loadContent() {
         if (auth.currentUser?.phoneNumber.isNullOrEmpty()) {
 
             Picasso.get().load(auth.currentUser?.photoUrl).into(imgViewProfile)
@@ -27,14 +43,6 @@ class ProfileActivity : AppCompatActivity() {
         } else {
             profNumber.setText(auth.currentUser?.phoneNumber)
         }
-
-        saveBtnProfile.setOnClickListener {
-            if (profNumber.text?.length==10){
-                //save()
-            } else {
-                Toast.makeText(this, "Enter Valid Credentials", Toast.LENGTH_SHORT).show()
-            }
-        }
-        //Toast.makeText(this,auth.currentUser?.displayName,Toast.LENGTH_SHORT).show()
     }
+
 }
