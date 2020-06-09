@@ -12,11 +12,9 @@ import androidx.preference.PreferenceManager
 import com.example.ipunotes.fragments.MainFragment
 import com.example.ipunotes.fragments.SubjectFragment
 import com.example.ipunotes.models.Subject
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.drawer_header.*
 import kotlinx.android.synthetic.main.drawer_header.view.*
 import kotlinx.android.synthetic.main.drawer_header.view.userNameDrawer
 
@@ -94,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.profileOption -> {
-                    startActivity(Intent(this,ProfileActivity::class.java))
+                    startActivity(Intent(this, UserProfileActivity::class.java))
                     overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
                     return@setNavigationItemSelectedListener true
                 }
