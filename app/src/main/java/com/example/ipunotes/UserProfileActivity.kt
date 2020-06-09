@@ -28,7 +28,7 @@ class UserProfileActivity : AppCompatActivity() {
 
 
         saveBtnProfile.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,SplashActivity::class.java))
             finish()
         }
         //Toast.makeText(this,auth.currentUser?.displayName,Toast.LENGTH_SHORT).show()

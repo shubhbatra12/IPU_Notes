@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".UserProfileActivity">
+    tools:context=".UserProfileActivity"
+    android:background="?attr/backgroundPrimary"
+    tools:theme="@style/DarkTheme">
 
 
     <androidx.cardview.widget.CardView
@@ -30,9 +32,9 @@
         android:layout_margin="8dp"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
-        android:textColorHint="?attr/textColorPrimary"
+        android:textColorHint="?attr/mHintTextColor"
         app:hintTextColor="?attr/labelBackgroundColor"
-        app:boxStrokeColor="?attr/labelBackgroundColor"
+        app:boxStrokeColor="@drawable/box_stroke_color"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusBottomEnd="12dp">
 
@@ -52,9 +54,9 @@
         android:layout_margin="8dp"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
-        android:textColorHint="?attr/textColorPrimary"
+        android:textColorHint="?attr/mHintTextColor"
         app:hintTextColor="?attr/labelBackgroundColor"
-        app:boxStrokeColor="?attr/labelBackgroundColor"
+        app:boxStrokeColor="@drawable/box_stroke_color"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusBottomEnd="12dp"
         app:endIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
@@ -77,9 +79,9 @@
         android:layout_margin="8dp"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
-        android:textColorHint="?attr/textColorPrimary"
+        android:textColorHint="?attr/mHintTextColor"
         app:hintTextColor="?attr/labelBackgroundColor"
-        app:boxStrokeColor="?attr/labelBackgroundColor"
+        app:boxStrokeColor="@drawable/box_stroke_color"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusBottomEnd="12dp"
         app:endIconDrawable="@android:drawable/ic_menu_close_clear_cancel"
@@ -101,9 +103,9 @@
         android:layout_margin="8dp"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
-        android:textColorHint="?attr/textColorPrimary"
+        android:textColorHint="?attr/mHintTextColor"
         app:hintTextColor="?attr/labelBackgroundColor"
-        app:boxStrokeColor="?attr/labelBackgroundColor"
+        app:boxStrokeColor="@drawable/box_stroke_color"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusBottomEnd="12dp">
 
