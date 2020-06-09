@@ -99,7 +99,7 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(this,SplashActivity::class.java))
+                    startActivity(Intent(this,UserProfileActivity::class.java))
                     overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
                     finish()
 //                    Log.d(TAG, "signInWithCredential:success")

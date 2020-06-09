@@ -91,7 +91,7 @@ class MobileLoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("TAG", "signInWithCredential:success")
-                    startActivity(Intent(this, SplashActivity::class.java))
+                    startActivity(Intent(this, UserProfileActivity::class.java))
                     finish()
                     val user = task.result?.user
                 } else {
