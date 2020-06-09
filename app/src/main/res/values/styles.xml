@@ -22,7 +22,7 @@
         <item name="bottomNavBarNotSelected">@color/grey</item>
         <item name="bottomNevBarSelected">@color/blue</item>
         <item name="boxBackgroundColorFocused">@color/blue</item>
-        <item name="boxBackgroundColorNotFocused">@color/darkerLightGrey</item>
+        <item name="boxBackgroundColorNotFocused">@color/lightGrey</item>
         <item name="mHintTextColor">@color/grey</item>
 
         <item name="android:listDivider">@color/white</item>
@@ -39,8 +39,8 @@
         <item name="bottomNavBarNotSelected">@color/white</item>
         <item name="bottomNevBarSelected">@color/blue</item>
         <item name="boxBackgroundColorFocused">@color/blue</item>
-        <item name="boxBackgroundColorNotFocused">@color/darkerLightGrey</item>
-        <item name="mHintTextColor">@color/darkerLightGrey</item>
+        <item name="boxBackgroundColorNotFocused">@color/lightGrey</item>
+        <item name="mHintTextColor">@color/lightGrey</item>
 
         <!--    Defaults...     -->
         <item name="android:textColorPrimary">@color/white</item>
@@ -60,8 +60,8 @@
         <item name="bottomNavBarNotSelected">@color/white</item>
         <item name="bottomNevBarSelected">@color/blue</item>
         <item name="boxBackgroundColorFocused">@color/blue</item>
-        <item name="boxBackgroundColorNotFocused">@color/darkerLightGrey</item>
-        <item name="mHintTextColor">@color/darkerLightGrey</item>
+        <item name="boxBackgroundColorNotFocused">@color/lightGrey</item>
+        <item name="mHintTextColor">@color/lightGrey</item>
 
         <!--    Defaults...     -->
         <item name="android:textColorPrimary">@color/white</item>
