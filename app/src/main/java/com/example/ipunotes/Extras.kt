@@ -19,6 +19,8 @@ const val DB_NAME = "IpuNotes"
 const val TABLE_NAME = "MySubjects"
 const val COL_SUBJECT_ID = "Id"
 const val COL_SUBJECT_NAME = "Name"
+val semesterList = arrayOf(1, 2, 3, 4, 5, 6, 7, 8)
+val branchList = arrayOf("CSE", "ECE", "EEE", "MAE", "IT")
 
 object Extras {
     val myApp = MyApp()
