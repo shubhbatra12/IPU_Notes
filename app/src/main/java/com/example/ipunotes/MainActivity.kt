@@ -1,9 +1,11 @@
 package com.example.ipunotes
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,7 @@ import com.example.ipunotes.models.Subject
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.dialogue_theme.view.*
 import kotlinx.android.synthetic.main.drawer_header.view.*
 import kotlinx.android.synthetic.main.drawer_header.view.userNameDrawer
 
@@ -85,6 +88,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, SettingsActivity::class.java))
                     return@setNavigationItemSelectedListener true
                 }
+                R.id.themeOption -> {
+                    openThemeDialogue()
+                    return@setNavigationItemSelectedListener true
+                }
                 R.id.logoutOption -> {
                     auth.signOut()
                     startActivity(Intent(this, SplashActivity::class.java))
@@ -103,6 +110,43 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun openThemeDialogue() {
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialogue_theme, null, false)
+
+
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(mDialogView)
+            .setCancelable(true)
+        val mAlertDialog = mBuilder.show()
+
+//        if(sharedPreferences.getBoolean(DARK_THEME, true)){
+//            mDialogView.radioButtonDark.isChecked = true
+//        }else{
+//            mDialogView.radioButtonLight.isChecked = true
+//        }
+
+        mDialogView.radioButtonDark.setOnClickListener {
+            mAlertDialog.dismiss()
+////            Toast.makeText(this,"Something",Toast.LENGTH_SHORT).show()
+//            sharedPreferencesEditor.putBoolean(DARK_THEME, true).commit()
+//            sharedPreferencesEditor.putBoolean(THEME_CHANGED, true).commit()
+        }
+
+        mDialogView.radioButtonLight.setOnClickListener {
+            mAlertDialog.dismiss()
+////            Toast.makeText(this,"Other thing",Toast.LENGTH_SHORT).show()
+//            sharedPreferencesEditor.putBoolean(DARK_THEME, false).commit()
+//            sharedPreferencesEditor.putBoolean(THEME_CHANGED, true).commit()
+        }
+
+        mDialogView.radioButtonDark.setOnClickListener {
+            mAlertDialog.dismiss()
+////            Toast.makeText(this,"Other thing",Toast.LENGTH_SHORT).show()
+//            sharedPreferencesEditor.putBoolean(DARK_THEME, false).commit()
+//            sharedPreferencesEditor.putBoolean(THEME_CHANGED, true).commit()
+        }
     }
 
     private fun initiateLandscapeSetup() {

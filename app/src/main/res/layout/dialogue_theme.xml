@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="30dp"
+        android:background="?attr/backgroundPrimary">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Theme"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="?attr/textColorPrimary"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-20dp">
+
+            <RadioButton
+                android:id="@+id/radioButtonLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Light Theme"
+                android:textColor="?attr/textColorPrimary"
+                android:layout_margin="10dp"
+                tools:ignore="MissingConstraints" />
+
+            <RadioButton
+                android:id="@+id/radioButtonDark"
+                android:layout_width="wrap_content"
+                android:textColor="?attr/textColorPrimary"
+                android:layout_height="wrap_content"
+                android:text="Dark Theme"
+                android:layout_margin="10dp"
+                tools:ignore="MissingConstraints" />
+
+
+            <RadioButton
+                android:id="@+id/radioButtonBlack"
+                android:layout_width="wrap_content"
+                android:textColor="?attr/textColorPrimary"
+                android:layout_height="wrap_content"
+                android:text="Black Theme"
+                android:layout_margin="10dp"
+                tools:ignore="MissingConstraints" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
