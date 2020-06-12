@@ -21,39 +21,138 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
             </FrameLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:layout_marginStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:orientation="vertical"
-                android:layout_marginVertical="5dp">
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginHorizontal="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/labelBackgroundColor">
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:paddingHorizontal="10dp"
+            android:orientation="vertical"
+            android:paddingVertical="5dp"
+            android:background="?attr/backgroundSecondary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="File Name"
+                android:textColor="@android:color/transparent"
+                android:textSize="18sp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/grey_rectangle"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author: Name"
+                android:textColor="@android:color/transparent"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/grey_rectangle"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Date: 01/01/2020"
+                android:textColor="@android:color/transparent"
+                android:textSize="12sp"
+                android:background="@drawable/grey_rectangle" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/labelBackgroundColor">
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:paddingHorizontal="10dp"
+                android:orientation="vertical"
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="File Name"
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Author: Name"
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Date: 01/01/2020"
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
 
             </LinearLayout>
         </LinearLayout>
@@ -72,39 +171,38 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
             </FrameLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:layout_marginStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:orientation="vertical"
-                android:layout_marginVertical="5dp">
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
 
             </LinearLayout>
         </LinearLayout>
@@ -123,39 +221,38 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
             </FrameLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:layout_marginStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:orientation="vertical"
-                android:layout_marginVertical="5dp">
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
 
             </LinearLayout>
         </LinearLayout>
@@ -174,39 +271,38 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
             </FrameLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:layout_marginStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:orientation="vertical"
-                android:layout_marginVertical="5dp">
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
 
             </LinearLayout>
         </LinearLayout>
@@ -225,39 +321,38 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
             </FrameLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:layout_marginStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:orientation="vertical"
-                android:layout_marginVertical="5dp">
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
 
             </LinearLayout>
         </LinearLayout>
@@ -276,39 +371,38 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
             </FrameLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:layout_marginStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:orientation="vertical"
-                android:layout_marginVertical="5dp">
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
 
             </LinearLayout>
         </LinearLayout>
@@ -327,39 +421,38 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
             </FrameLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:layout_marginStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:orientation="vertical"
-                android:layout_marginVertical="5dp">
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
 
             </LinearLayout>
         </LinearLayout>
@@ -378,90 +471,38 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
             </FrameLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:layout_marginStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:orientation="vertical"
-                android:layout_marginVertical="5dp">
+                android:paddingVertical="5dp"
+                android:background="?attr/backgroundSecondary">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/grey_rectangle"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
-
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="10dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/labelBackgroundColor">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FN"
-                    android:textColor="?attr/textColorSecondary"
-                    android:layout_gravity="center"
-                    android:textSize="24sp"/>
-            </FrameLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:layout_marginStart="10dp"
-                android:orientation="vertical"
-                android:layout_marginVertical="5dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="File Name"
-                    android:textColor="?attr/textColorPrimary"
-                    android:textSize="20sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Author: Name"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Upload Date: 01/01/2020"
-                    android:textColor="?attr/textColorTertiary"
-                    android:textSize="14sp"/>
+                    android:textColor="@android:color/transparent"
+                    android:textSize="12sp"
+                    android:background="@drawable/grey_rectangle" />
 
             </LinearLayout>
         </LinearLayout>

@@ -6,4 +6,9 @@
     <attr name="backgroundPrimary"/>
     <attr name="backgroundSecondary"/>
     <attr name="textColorTertiary"/>
+    <attr name="bottomNevBarSelected"/>
+    <attr name="bottomNavBarNotSelected"/>
+    <attr name="boxBackgroundColorFocused"/>
+    <attr name="boxBackgroundColorNotFocused"/>
+    <attr name="mHintTextColor"/>
 </resources>

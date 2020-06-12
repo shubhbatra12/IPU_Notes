@@ -16,7 +16,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:background="?attr/backgroundSecondary"
+        app:itemIconTint="@drawable/nav_item_color_state"
+        app:itemTextColor="@drawable/nav_item_color_state"/>
 
 
 </RelativeLayout>
