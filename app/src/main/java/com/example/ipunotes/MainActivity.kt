@@ -14,6 +14,8 @@ import androidx.preference.PreferenceManager
 import com.example.ipunotes.fragments.MainFragment
 import com.example.ipunotes.fragments.SubjectFragment
 import com.example.ipunotes.models.Subject
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
@@ -116,12 +118,13 @@ class MainActivity : AppCompatActivity() {
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialogue_theme, null, false)
 
 
-        val mBuilder = AlertDialog.Builder(this)
-            .setView(mDialogView)
-            .setCancelable(true)
-        val mAlertDialog = mBuilder.show()
+//        val mBuilder = AlertDialog.Builder(this)
+//            .setView(mDialogView)
+//            .setCancelable(true)
+        val mAlertDialog = BottomSheetDialog(this)
+        mAlertDialog.setContentView(mDialogView)
 
-//        if(sharedPreferences.getBoolean(DARK_THEME, true)){
+//        if(sharedPreferences.getBoolean(DARK_THEME, true)){x
 //            mDialogView.radioButtonDark.isChecked = true
 //        }else{
 //            mDialogView.radioButtonLight.isChecked = true
@@ -141,7 +144,7 @@ class MainActivity : AppCompatActivity() {
 //            sharedPreferencesEditor.putBoolean(THEME_CHANGED, true).commit()
         }
 
-        mDialogView.radioButtonDark.setOnClickListener {
+        mDialogView.radioButtonBlack.setOnClickListener {
             mAlertDialog.dismiss()
 ////            Toast.makeText(this,"Other thing",Toast.LENGTH_SHORT).show()
 //            sharedPreferencesEditor.putBoolean(DARK_THEME, false).commit()
